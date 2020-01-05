@@ -1,19 +1,32 @@
 <template>
-  <div class="modal" :class="{'is-active' : isActive}">
-    <div class="modal-content">Modal Window</div>
+  <div class="modal" :class="{'is-active' : isOpen}">
+    <div class="modal-content"><span class="close">&times;</span>
+    <p>Modal Window</p>
+    </div>
   </div>
 </template>
 <script>
 export default {
-  data() {
-      return{
-        isActive: true
+  props:{
+      isOpen:{
+          required: true,
+          type:Boolean
       }
-    
   }
 }
 </script>
 <style scoped lang="scss"> 
+.close{
+    color:#aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 8px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
 .modal.is-active {
   display: block;
 }
@@ -23,7 +36,7 @@ export default {
   z-index: 9999;
   left: 0;
   top: 0;
-  width: 80%;
+  width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
