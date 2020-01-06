@@ -4,16 +4,11 @@
       <div class="todo-container">
         <todo-list :todos="todos" />
         <div class="todo-creat-btn-container">
-          <div 
-          @click="isModalOpen = true "
-           
-          class="app-button">Create</div>
+           <Modal />
         </div>
       </div>
     </div>
-    <Modal 
-    @modalClosed="isModalOpen = false"
-    :isOpen="isModalOpen" />
+   
   </div>
 </template>
 
@@ -29,7 +24,7 @@ export default {
   },
   data() {
     return {
-      isModalOpen:false,
+      
       todos: [
         {
           _id: "1",
@@ -49,14 +44,7 @@ export default {
       ]
     };
   },
-  // methods:{
-  //   openModal(){
-  //     this.isModalOpen = true
-  //   },
-  //   closeModal(){
-  //     this.isModalOpen=false
-  //   }
-  // }
+
 };
 </script>
 
