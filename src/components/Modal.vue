@@ -1,6 +1,6 @@
 <template>
   <div class="modal" :class="{'is-active' : isOpen}">
-    <div class="modal-content"><span class="close">&times;</span>
+    <div class="modal-content"><span @click="$emit('modalClosed')" class="close">&times;</span>
     <p>Modal Window</p>
     </div>
   </div>
@@ -12,7 +12,12 @@ export default {
           required: true,
           type:Boolean
       }
-  }
+  },
+//   methods:{
+//       emitcloseModal(){
+//           this.$emit('modalClosed')
+//       }
+//   }
 }
 </script>
 <style scoped lang="scss"> 
