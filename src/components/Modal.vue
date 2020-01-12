@@ -5,7 +5,7 @@
     <div class="modal" :class="{'is-active' : isOpen}">
       <div class="modal-content">
         <span @click="isOpen = false" class="close">&times;</span>
-        <p>Modal Window</p>
+        <slot />
       </div>
     </div>
   </div>
@@ -15,16 +15,14 @@ export default {
  data(){
      return{
          isOpen: false
+         
      }
  }
-  //   methods:{
-  //       emitcloseModal(){
-  //           this.$emit('modalClosed')
-  //       }
-  //   }
-};
+
+}
 </script>
 <style scoped lang="scss">
+
 .close {
   color: #aaa;
   float: right;
@@ -56,5 +54,6 @@ export default {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  text-align: left;
 }
 </style>
