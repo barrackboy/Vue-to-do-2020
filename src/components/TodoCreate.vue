@@ -1,5 +1,5 @@
 <template>
-  <modal>
+  <modal :close="forceClose">
     <form class="app-form" action>
       <div class="form-control">
         <label for class="label">Title</label>
@@ -32,9 +32,11 @@ export default {
       form: {
         title: "",
         description: ""
-      }
+      },
+      forceClose: false
     };
   },
+  
   computed:{
       isFormValid(){
         //  if (this.form.title && this.form.description){
@@ -49,8 +51,10 @@ export default {
     submitForm() {
         if (this.isFormValid){
        this.$emit('formSubmitted',{...this.form})
-        this.form.title=''
-        this.form.description=''
+       this.forceClose=true
+       this.$nextTick(() => this.forceClose = false)
+       
+        this.resetForm()
     
         }
     },

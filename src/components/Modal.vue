@@ -12,11 +12,24 @@
 </template>
 <script>
 export default {
+  props:{
+    close:{
+      type:Boolean,
+      required:false
+    }
+  },
  data(){
      return{
          isOpen: false
          
      }
+ },
+ watch:{
+   close(isClose){
+     if(isClose===true && this.isOpen===true){
+       this.isOpen=false
+     }
+   }
  }
 
 }
