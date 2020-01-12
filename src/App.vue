@@ -4,7 +4,7 @@
       <div class="todo-container">
         <todo-list :todos="todos" />
         <div class="todo-creat-btn-container">
-           <todo-create />
+           <todo-create @formSubmitted="createTodo"/>
         </div>
       </div>
     </div>
@@ -44,6 +44,12 @@ export default {
       ]
     };
   },
+  methods:{
+ createTodo(todo){
+    this.todos.push(todo)
+  }
+  }
+ 
 
 };
 </script>

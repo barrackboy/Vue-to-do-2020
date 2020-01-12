@@ -16,7 +16,7 @@
         </textarea>
         
       </div>
-      <button @click="createTodo" type="button" class="app-button is-primary">Confirm</button>
+      <button @click="submitForm" type="button" class="app-button is-primary">Confirm</button>
     </form>
   </modal>
 </template>
@@ -35,9 +35,29 @@ export default {
       }
     };
   },
+  computed:{
+      isFormValid(){
+        //  if (this.form.title && this.form.description){
+        //      return true
+        //  }else{
+        //      return false
+        //  }
+         return this.form.title && this.form.description ? true : false
+      }
+  },
   methods: {
-    createTodo() {
-      console.log(this.form);
+    submitForm() {
+        if (this.isFormValid){
+       this.$emit('formSubmitted',{...this.form})
+        this.form.title=''
+        this.form.description=''
+    
+        }
+    },
+    resetForm(){
+        this.form.title=''
+        this.form.description=''
+
     }
   }
 };
