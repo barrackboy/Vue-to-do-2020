@@ -55,6 +55,7 @@ export default {
 </script>
 
 <style lang="scss" >
+$color-red:#ff1212;
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -62,6 +63,9 @@ export default {
   // text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.app-error{
+  color: red;
 }
 .app-form{
     .label{
@@ -78,12 +82,17 @@ export default {
     }
 }
 
-
 .is-primary{
   background-color: #47ca47 !important;
 }
 .form-input {
     padding: 5px;
+}
+.form-control{
+  margin-bottom: 10px;
+  &-last{
+    margin-bottom: 0;
+  }
 }
 .app-button {
   font-size: 20px;
