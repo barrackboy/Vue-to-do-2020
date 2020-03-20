@@ -85,6 +85,12 @@ $color-red:#ff1212;
 .is-primary{
   background-color: #47ca47 !important;
 }
+.is-warning{
+  background-color: #ffa753 !important;
+}
+.is-danger{
+  background-color: #ff5a5a !important;
+}
 .form-input {
     padding: 5px;
 }
