@@ -5,18 +5,18 @@
         <div class="todo-item-content-description">{{description}}</div>
       </div>
       <button @click="editMode = true" class="app-button is-warning">Edit</button>
-      
+      <button @click="deleteTodo" class="app-button is-danger">Delete</button>
     </div>
     <div v-else class="todo-item">
       <form class="app-form" action>
       <div class="form-control">
         <label for class="label">Title</label>
-        <input class="form-input" type="text" />
+        <input v-bind:value="title" class="form-input" type="text" />
       </div>
       <div class="form-control form-control-last">
         <label for class="label">Description</label>
         <textarea
-       
+       v-bind:value="description"
         cols="30"
         rows="2"
         class="form-input">
@@ -24,8 +24,8 @@
         </textarea> 
         
       </div>
-     <button @click="editMode = false" class="app-button is-warning">Edit</button>
-      <button @click="deleteTodo" class="app-button is-danger">Delete</button>
+     <button @click.prevent="editTodo" class="app-button is-warning">Update</button>
+      <button @click.prevent="editMode = false" class="app-button is-danger">Cancel</button>
 
     </form>
     </div>
